@@ -1,7 +1,7 @@
 "use server";
 
 import { SortOrder, FilterQuery } from "mongoose";
-import Thread from "../models/thread.modal";
+import Thread from "../models/thread.model";
 import User from "../models/user.model";
 import { connectToDB } from "../mongoose";
 import { revalidatePath } from "next/cache";
