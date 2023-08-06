@@ -1,10 +1,10 @@
 import ThreadCard from "@/components/cards/ThreadCard";
-import { fetchPost } from "@/lib/actions/thread.actions";
+import { fetchPosts } from "@/lib/actions/thread.actions";
 import { currentUser } from "@clerk/nextjs";
 
 //app/page.tsx
 export default async function Home() {
-  const result = await fetchPost(1, 30);
+  const result = await fetchPosts(1, 30);
   const user = await currentUser();
   return (
     <>
@@ -14,7 +14,7 @@ export default async function Home() {
           <p className="no-result">No thread found</p>
         ) : (
           <>
-            {result.posts.map((post) => (
+            {result.posts.map((post: any) => (
               <ThreadCard
                 key={post._id}
                 id={post._id}
